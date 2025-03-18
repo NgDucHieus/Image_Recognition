@@ -5,6 +5,7 @@ from PIL import Image
 import requests
 import torch  # Import torch here
 
+
 def classify_construction_image(image_path, candidate_labels):
     """
     Phân loại ảnh công trình xây dựng sử dụng mô hình VLM (CLIP).
@@ -53,7 +54,7 @@ if __name__ == "__main__":
     destination_base_folder = "ResultResult" # <---- Thay đổi đường dẫn thư mục gốc chứa các thư mục con đã phân loại
     construction_labels = [
         "digital multimeter, black color, gray colorcolor", #đo chiều dày thép
-        "digital multimeter, green color, dark green", #đo độ cứng thép
+        "Insize digital multimeter, green color, dark green", #đo độ cứng thép
         "tape measure, ruler", #ảnh đo đạc bằng thước thép #ảnh tổng thể
         "Top view of corrugated metal roof, Aerial view of metal roof, Galvanized metal roof top view, Bird’s-eye view of steel roof", #mái tôn
         "Structural Joints, Connection Details, Steel Connections", #ảnh chi tiết liên kết
