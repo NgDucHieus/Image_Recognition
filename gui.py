@@ -1,21 +1,17 @@
 import sys
 import os
-import time
 import shutil
 import platform
 import subprocess
 import json
 import logging
-from typing import List, Optional
-import threading
-
 from PySide6.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QPushButton,
     QLineEdit, QFileDialog, QProgressBar, QLabel,
-    QFrame, QHBoxLayout, QGraphicsDropShadowEffect, QMessageBox
+    QFrame, QHBoxLayout, QMessageBox
 )
-from PySide6.QtCore import Qt, QThread, Signal, QDir
-from PySide6.QtGui import QPalette, QColor, QFont, QPainter, QPainterPath
+from PySide6.QtCore import Qt, QThread, Signal
+from PySide6.QtGui import QColor, QFont, QPainter, QPainterPath
 
 # Set up logging
 logging.basicConfig(
@@ -259,7 +255,8 @@ class ImageClassificationApp(QWidget):
         self.source_edit = QLineEdit()
         self.source_edit.setPlaceholderText("Select source folder...")
         self.source_edit.setReadOnly(True)
-        self.source_edit.setStyleSheet("border: none; font-size: 14px; background: transparent;")
+        self.source_edit.setMinimumHeight(14)
+        self.source_edit.setStyleSheet("border: none; font-size: 14px; background: transparent; color: black;")
         
         source_browse = QPushButton("Browse")
         source_browse.setStyleSheet("background-color: #4a86e8; color: white; padding: 8px; border-radius: 8px;")
@@ -290,7 +287,8 @@ class ImageClassificationApp(QWidget):
         self.dest_edit = QLineEdit()
         self.dest_edit.setPlaceholderText("Select destination folder...")
         self.dest_edit.setReadOnly(True)
-        self.dest_edit.setStyleSheet("border: none; font-size: 14px; background: transparent;")
+        self.dest_edit.setMinimumHeight(14)
+        self.dest_edit.setStyleSheet("border: none; font-size: 14px; background: transparent; color: black;")
         
         dest_browse = QPushButton("Browse")
         dest_browse.setStyleSheet("background-color: #4a86e8; color: white; padding: 8px; border-radius: 8px;")
