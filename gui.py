@@ -12,7 +12,8 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt, QThread, Signal
 from PySide6.QtGui import QColor, QFont, QPainter, QPainterPath
-
+from PySide6.QtGui import QIcon
+from PySide6.QtCore import QSize
 # Set up logging
 logging.basicConfig(
     level=logging.INFO,
@@ -258,11 +259,13 @@ class ImageClassificationApp(QWidget):
         self.source_edit.setMinimumHeight(14)
         self.source_edit.setStyleSheet("border: none; font-size: 14px; background: transparent; color: black;")
         
-        source_browse = QPushButton("Browse")
-        source_browse.setStyleSheet("background-color: #4a86e8; color: white; padding: 8px; border-radius: 8px;")
-        source_browse.setFixedWidth(100)
+        source_browse = QPushButton()
+        source_browse.setIcon(QIcon.fromTheme("folder"))
+        source_browse.setIconSize(QSize(18, 18))  # Kích thước icon phù hợp
+        source_browse.setFixedSize(30, 30)  # Giữ nút nhỏ gọn, chỉ vừa với icon
+        source_browse.setStyleSheet("background: #4a86e8; border: none; border-radius:5px;margin-bottom: 10px;margin-right: 10px;")
         source_browse.clicked.connect(self.select_source_folder)
-        
+
         source_layout.addWidget(self.source_edit)
         source_layout.addWidget(source_browse)
         container_layout.addWidget(source_frame)
@@ -290,9 +293,11 @@ class ImageClassificationApp(QWidget):
         self.dest_edit.setMinimumHeight(14)
         self.dest_edit.setStyleSheet("border: none; font-size: 14px; background: transparent; color: black;")
         
-        dest_browse = QPushButton("Browse")
-        dest_browse.setStyleSheet("background-color: #4a86e8; color: white; padding: 8px; border-radius: 8px;")
-        dest_browse.setFixedWidth(100)
+        dest_browse = QPushButton()
+        dest_browse.setIcon(QIcon.fromTheme("folder"))
+        dest_browse.setIconSize(QSize(18, 18))  # Kích thước icon phù hợp
+        dest_browse.setFixedSize(30, 30)  # Giữ nút nhỏ gọn, chỉ vừa với icon
+        dest_browse.setStyleSheet("background: #4a86e8; border: none; border-radius:5px; margin-bottom: 10px; margin-left: 10px;")  # Xóa nền và viền
         dest_browse.clicked.connect(self.select_dest_folder)
         
         dest_layout.addWidget(self.dest_edit)
